@@ -8,6 +8,8 @@
     <DebugSymbols>true</DebugSymbols>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <IsPackable>True</IsPackable>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputPath>.\bin\netstandard2.0\</OutputPath>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -27,11 +29,34 @@
     <GenerateAssemblyVersionAttribute>true</GenerateAssemblyVersionAttribute>
     <UpdateAssemblyInfo>false</UpdateAssemblyInfo>
     <UseProjectNamespaceForGitVersionInformation>true</UseProjectNamespaceForGitVersionInformation>
+    <PackageOutputPath>.\bin\</PackageOutputPath>
   </PropertyGroup>
 
   <PropertyGroup>
     <NoWarn>1701;1702;CS1591</NoWarn>
   </PropertyGroup>
+
+  <Target Name="VSGitVersion" BeforeTargets="PreBuildEvent" Condition="$(MSBuildRuntimeType)=='Full'">
+    <Message Text="Delete $(NuGetPackageRoot)$(PackageId)" Importance="high" />
+    <RemoveDir Directories="$(NuGetPackageRoot)$(PackageId)" />
+    <Exec Command="$(NuGetPackageRoot)\gitversion.msbuild\6.1.0\tools\net8.0\gitversion.exe -showvariable SemVer" ConsoleToMSBuild="true">
+      <Output TaskParameter="ConsoleOutput" PropertyName="Version" />
+      <Output TaskParameter="ConsoleOutput" PropertyName="PackageVersion" />
+    </Exec>
+    <Exec Command="$(NuGetPackageRoot)\gitversion.msbuild\6.1.0\tools\net8.0\gitversion.exe -showvariable Major" ConsoleToMSBuild="true">
+      <Output TaskParameter="ConsoleOutput" PropertyName="AssemblyVersion" />
+    </Exec>
+  </Target>
+
+  <Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec" Condition="Exists('./release-notes.md')">
+    <ReadLinesFromFile File="./release-notes.md" >
+      <Output TaskParameter="Lines" ItemName="ReleaseNoteLines"/>
+    </ReadLinesFromFile>
+
+    <PropertyGroup>
+      <PackageReleaseNotes>@(ReleaseNoteLines, '%0a')</PackageReleaseNotes>
+    </PropertyGroup>
+  </Target>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.0" />
