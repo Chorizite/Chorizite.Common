@@ -3,7 +3,7 @@ using System;
 namespace Chorizite.Common.Enums {
     [Flags]
     public enum PlayerKillerStatus : ushort {
-        Undef = 0x00,
+        None = 0x00,
 
         Protected = 0x01,
 

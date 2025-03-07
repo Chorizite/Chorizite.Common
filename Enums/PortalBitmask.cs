@@ -3,7 +3,7 @@ using System;
 namespace Chorizite.Common.Enums {
     [Flags]
     public enum PortalBitmask : int {
-        Undef = 0x00,
+        None = 0x00,
 
         NotPassable = 0x00,
 

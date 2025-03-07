@@ -3,7 +3,7 @@ namespace Chorizite.Common.Enums {
     /// The PropertyFloat identifies a specific Character or Object float property.
     /// </summary>
     public enum PropertyFloat : uint {
-        Undef = 0,
+        None = 0,
 
         HeartbeatInterval = 1,
 

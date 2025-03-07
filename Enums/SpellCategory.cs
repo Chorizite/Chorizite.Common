@@ -1,6 +1,6 @@
 namespace Chorizite.Common.Enums {
     public enum SpellCategory : ushort {
-        Undef = 0,
+        None = 0,
 
         StrengthRaising = 1,
 

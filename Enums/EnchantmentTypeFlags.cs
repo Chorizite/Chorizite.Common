@@ -3,7 +3,7 @@ using System;
 namespace Chorizite.Common.Enums {
     [Flags]
     public enum EnchantmentTypeFlags : uint {
-        Undef = 0x0000000,
+        None = 0x0000000,
 
         Attribute = 0x0000001,
 

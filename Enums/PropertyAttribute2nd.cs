@@ -1,6 +1,6 @@
 namespace Chorizite.Common.Enums {
     public enum PropertyAttribute2nd : ushort {
-        Undef = 0x00,
+        None = 0x00,
 
         MaxHealth = 0x01,
 

@@ -1,6 +1,6 @@
 namespace Chorizite.Common.Enums {
     public enum ImbuedEffectType : uint {
-        Undef = 0,
+        None = 0,
 
         CriticalStrike = 0x0001,
 

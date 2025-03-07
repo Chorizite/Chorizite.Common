@@ -1,6 +1,6 @@
 namespace Chorizite.Common.Enums {
     public enum SummoningMastery : int {
-        Undef = 0,
+        None = 0,
 
         Primalist = 1,
 

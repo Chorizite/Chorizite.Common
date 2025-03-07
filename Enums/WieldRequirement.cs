@@ -1,6 +1,6 @@
 namespace Chorizite.Common.Enums {
     public enum WieldRequirement : int {
-        Undef = 0,
+        None = 0,
 
         Skill = 1,
 
