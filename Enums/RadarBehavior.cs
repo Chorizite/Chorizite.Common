@@ -3,7 +3,7 @@ namespace Chorizite.Common.Enums {
     /// Radar behavior
     /// </summary>
     public enum RadarBehavior : byte {
-        Undefined = 0x00,
+        None = 0x00,
 
         ShowNever = 0x01,
 

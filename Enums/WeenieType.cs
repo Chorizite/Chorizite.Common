@@ -1,6 +1,6 @@
 namespace Chorizite.Common.Enums {
     public enum WeenieType : uint {
-        Undef = 0,
+        None = 0,
 
         Generic = 1,
 

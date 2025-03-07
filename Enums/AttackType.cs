@@ -1,6 +1,6 @@
 namespace Chorizite.Common.Enums {
     public enum AttackType : uint {
-        Undef = 0x0,
+        None = 0x0,
 
         Punch = 0x0001,
 

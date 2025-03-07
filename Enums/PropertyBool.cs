@@ -3,7 +3,7 @@ namespace Chorizite.Common.Enums {
     /// The PropertyBool identifies a specific Character or Object boolean property.
     /// </summary>
     public enum PropertyBool : uint {
-        Undef = 0,
+        None = 0,
 
         Stuck = 1,
 
